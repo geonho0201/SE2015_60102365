@@ -5,7 +5,7 @@
 
 <bean id="professor" class="Professor"> 
 	<constructor-arg>
-		<value>최성운</value>
+		<value>홍길동</value>
 	</constructor-arg>
 </bean>
 
