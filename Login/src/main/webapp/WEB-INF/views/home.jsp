@@ -2,7 +2,7 @@
 <%@ page session="false" pageEncoding="UTF-8" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>Home 60102365 이건호</title>
 </head>
 <body>
 <h1>
@@ -10,6 +10,7 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
 
 	<form action="loginController/login.do" method="post">
 		UserID : <input type="text" name="userID"/><br/>

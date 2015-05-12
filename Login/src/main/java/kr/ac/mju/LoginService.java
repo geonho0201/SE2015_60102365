@@ -1,21 +1,21 @@
 package kr.ac.mju;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class LoginService {
-	//private LoginDAO loginDao;
+	@Autowired
+	private LoginDAO loginDao;
 	
-	public User login(String userID, String userPassword) {
+	public User login(String userID, String userPassword) throws FileNotFoundException {
 		// TODO Auto-generated method stub
 		// dao 호출
-		User user = new User();
-		user.setID(userID);
-		user.setName("이름임");
-		
-		return user;
+		return loginDao.getUser(userID, userPassword);
 	}
-
-	
 }

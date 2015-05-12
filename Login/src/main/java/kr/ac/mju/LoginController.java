@@ -1,5 +1,6 @@
 package kr.ac.mju;
-
+//60102365 이건호
+import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,7 +21,7 @@ public class LoginController {
 	private LoginService service;
 	
 	@RequestMapping(value = "/loginController/login.do", method = RequestMethod.POST)
-	public String login(HttpServletRequest request) throws UnsupportedEncodingException{//hash table형태, key와 value
+	public String login(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException{//hash table형태, key와 value
 		request.setCharacterEncoding("utf-8");
 		String userID = request.getParameter("userID");
 		String userPassword = request.getParameter("userPassword");
@@ -31,7 +33,14 @@ public class LoginController {
 		
 		logger.info("로그인 요청 : "+userID);
 		if(user == null){
-			return "redirect:/";
+			model.addAttribute("errorMsg", "존재하지 않는 아이디입니다!");
+			return "loginerror";
+		}else if(user.getID() != null && user.getPassword() == null){
+			model.addAttribute("errorMsg", "패스워드가 일치하지 않습니다!");
+			return "loginerror";
+		}else if(user.getType().equals(Constants.TypeGyosu)){
+			request.getSession().setAttribute("userSession", user);
+			return "kangjwa";
 		}else{
 			request.getSession().setAttribute("userSession", user);
 			return "sugang";

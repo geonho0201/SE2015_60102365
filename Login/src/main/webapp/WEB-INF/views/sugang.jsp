@@ -10,10 +10,12 @@
 
 <h1>수강신청 화면</h1>
 
-${userSession.getID()}
-${userSession.getName()}
+${userSession.getID()}님 로그인.<br/>
+${userSession.getName()}학생님 안녕하세요!<br/>
 
-<a href="${pageContext.request.contextPath}/LoginController/logout">로그아웃</a>
+<a href="${pageContext.request.contextPath}/SugangController/sugang">수강신청</a><br/>
+<a href="${pageContext.request.contextPath}/SugangController/mySugang">내 수강</a><br/>
+<a href="${pageContext.request.contextPath}/loginController/logout">로그아웃</a>
 
 </body>
 </html>

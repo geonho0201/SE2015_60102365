@@ -10,8 +10,16 @@
 
 <h1>강좌개설 화면</h1>
 
-<a href="./../">홈으로</a>
+${userSession.getID()}님 로그인.<br/>
+${userSession.getName()} 교수님 안녕하세요!<br/><br/>
 
+	<form action="${pageContext.request.contextPath}/KangjwaController/kangjwagaseol.do" method="post">
+		강좌명 : <input type="text" name="kangjwaName"/><br/>
+		강좌번호 : <input type="text" name="kangjwaNumber"/><br/>
+		<input type="submit" value="강좌개설">
+	</form>
+
+<a href="${pageContext.request.contextPath}/loginController/logout">로그아웃</a>
 
 </body>
 </html>

@@ -36,11 +36,11 @@ public class HomeController {
 		return "home";//뷰 페이지의 이름,
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/loginerror", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		return "login";
+		return "loginerror";
 	}
 	
 	@RequestMapping(value = "/sugang", method = RequestMethod.GET)
@@ -50,11 +50,11 @@ public class HomeController {
 		return "sugang";
 	}
 	
-	@RequestMapping(value = "/gwamokView", method = RequestMethod.GET)
+	@RequestMapping(value = "/gwamok", method = RequestMethod.GET)
 	public String gwamok(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		return "gwamokView";
+		return "gwamok";
 	}
 	
 	@RequestMapping(value = "/kangjwa", method = RequestMethod.GET)
@@ -62,6 +62,13 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		return "kangjwa";
+	}
+	
+	@RequestMapping(value = "/suganglist", method = RequestMethod.GET)
+	public String suganglist(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		return "suganglist";
 	}
 	
 }
