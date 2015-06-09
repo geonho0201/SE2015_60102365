@@ -2,6 +2,7 @@ package kr.ac.mju;
 //60102365 이건호
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,8 +21,74 @@ public class LoginController {
 	@Autowired//자동으로 만들어줌
 	private LoginService service;
 	
+	@RequestMapping(value = "/loginController/createAccount.do", method = RequestMethod.POST)
+	public String createAccount(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		String userDBID = request.getParameter("userDBID");
+		String userDBPassword = request.getParameter("userDBPassword");
+		service.createAccount(userDBID,userDBPassword);
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/createTable.do", method = RequestMethod.POST)
+	public String createTable(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.createTable();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/insertData.do", method = RequestMethod.POST)
+	public String insertData(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.insertData();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/updateData.do", method = RequestMethod.POST)
+	public String updateData(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.updateData();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/deleteId5.do", method = RequestMethod.POST)
+	public String deleteId5(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.deleteId5();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/dropTable.do", method = RequestMethod.POST)
+	public String dropTable(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.dropTable();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/dropAccount.do", method = RequestMethod.POST)
+	public String dropAccount(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.dropAccount();
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/loginController/selectAll.do", method = RequestMethod.POST)
+	public String selectAll(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
+		request.setCharacterEncoding("utf-8");
+		service.selectAll();
+		
+		return "redirect:/";
+	}
+	
 	@RequestMapping(value = "/loginController/login.do", method = RequestMethod.POST)
-	public String login(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException{//hash table형태, key와 value
+	public String login(HttpServletRequest request, Model model) throws UnsupportedEncodingException, FileNotFoundException, ClassNotFoundException, SQLException{//hash table형태, key와 value
 		request.setCharacterEncoding("utf-8");
 		String userID = request.getParameter("userID");
 		String userPassword = request.getParameter("userPassword");
