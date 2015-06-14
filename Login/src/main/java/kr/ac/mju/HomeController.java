@@ -36,6 +36,13 @@ public class HomeController {
 		return "home";//뷰 페이지의 이름,
 	}
 	
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		return "join";
+	}
+	
 	@RequestMapping(value = "/loginerror", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -50,11 +57,11 @@ public class HomeController {
 		return "sugang";
 	}
 	
-	@RequestMapping(value = "/gwamok", method = RequestMethod.GET)
-	public String gwamok(Locale locale, Model model) {
+	@RequestMapping(value = "/mysugang", method = RequestMethod.GET)
+	public String mysugang(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		return "gwamok";
+		return "mysugang";
 	}
 	
 	@RequestMapping(value = "/kangjwa", method = RequestMethod.GET)
@@ -69,6 +76,20 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		return "suganglist";
+	}
+	
+	@RequestMapping(value = "/mykangjwa", method = RequestMethod.GET)
+	public String mykangjwa(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		return "mykangjwa";
+	}
+	
+	@RequestMapping(value = "/seongjeok", method = RequestMethod.GET)
+	public String seongjeok(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		return "seongjeok";
 	}
 	
 }
